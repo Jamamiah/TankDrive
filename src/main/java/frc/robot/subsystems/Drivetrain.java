@@ -6,14 +6,15 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.sensors.MagnetFieldStrength;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.commands.ArcadeDrive;
+
 
 public class Drivetrain extends SubsystemBase {
   TalonSRX m_Right = new TalonSRX(0); 
   TalonSRX m_Left = new TalonSRX(1);
+  
   /** Creates a new Drivetrain. */
   public Drivetrain() {}
 
@@ -28,7 +29,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setMotorsXY(double x, double y){
-    m_Right.set(TalonSRXControlMode.PercentOutput, -y-x/2);
-    m_Left.set(TalonSRXControlMode.PercentOutput, -y+x/2);
+    m_Right.set(TalonSRXControlMode.PercentOutput, x+y);
+    m_Left.set(TalonSRXControlMode.PercentOutput, x-y);
   }
 }
