@@ -5,10 +5,12 @@
 package frc.robot;
 
 
+import frc.robot.Constants.GrabberConstants;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -23,6 +25,7 @@ public class RobotContainer {
   private final Drivetrain m_drivetrain = new Drivetrain();
   private final OI m_oi = new OI();
   private final Intake m_Intake = new Intake();
+  private final GrabberSubsystem m_GrabberSubsystem = new GrabberSubsystem(GrabberConstants.forwardChannel, GrabberConstants.reverseChannel);
   private final CommandXboxController m_CommandXboxController = new CommandXboxController(0);
 
   //Replace with CommandPS4Controller or CommandJoystick if needed
@@ -56,6 +59,7 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     xButton.whileTrue(new MoveIntake(m_Intake, 0.25));
+    yButton.whileTrue(new ToggleGrabber(m_GrabberSubsystem));
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     
   }
