@@ -10,7 +10,6 @@ import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -52,7 +51,6 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     Trigger xButton = m_CommandXboxController.x();
     Trigger yButton = m_CommandXboxController.y();
-    Trigger bButton = m_CommandXboxController.b();
     //new Trigger(m_exampleSubsystem::exampleCondition)
         //.onTrue(new ExampleCommand(m_exampleSubsystem));
 
