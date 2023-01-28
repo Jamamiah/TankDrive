@@ -1,9 +1,15 @@
 
 package frc.robot.commands;
 
-public class StopIntake extends CommandBase{
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Intake;
+
+public class StopIntake extends CommandBase
+{
     Intake m_Intake;
-    public MoveIntake(Intake intake){
+
+    public StopIntake(Intake intake)
+    {
         m_Intake = intake;
     }
   
@@ -11,7 +17,6 @@ public class StopIntake extends CommandBase{
     @Override
     public void initialize() {
         m_Intake.rollerStop();
-        
     }
   
     // Called every time the scheduler runs while the command is scheduled.

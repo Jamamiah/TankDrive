@@ -1,6 +1,10 @@
 package frc.robot.commands;
 
-public class MoveIntake extends CommandBase{
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Intake;
+
+public class MoveIntake extends CommandBase
+{
     Intake m_Intake;
     double m_speed;
     public MoveIntake(Intake intake, double speed){
